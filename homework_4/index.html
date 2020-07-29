@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Coding Quiz</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+</head>
+
+<body>
+
+
+    <!-- // Navigation Bar//     -->
+    <div>
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="text-black" id="score-click"></a>View Highscores</a>
+                </div>
+                <ul id="score-area" class="nav navbar-right">
+                    <li class="text-black">Time: <span id="timer"></span>
+                        <div>
+                    </li> <br>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+
+    <div id="action-area"></div>
+    <div id="feedback-area"></div>
+
+    <!-- // Below is the Welcome Message // -->
+
+    <div id="welcome-message" style="display: inline-block;">
+        <div class="col-md-12 text-center">
+            <h4>Coding Quiz Challenge</h4>
+            <p class="float-md-none">Try to answer the following code-related questions within the time limit. Keep in
+                Mind that incorrect answers will penalize your scor/time by ten seconds!</p>
+            <div>
+                <button type="button" class="btn btn-primary" id="start-button"> Start</button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- //Question 1// ----------- 3 is the correct answer  -->
+    <div id="question-one" style="display: none;">
+        <div class="col-md-12 text-center">
+            <h4 class="questionArea1">Commonly used data types DO NOT include:</h4>
+        </div>
+        <div class="col-md-12 text-center">
+            <ul class="col-md-12 text-center">
+                <div class="padding-bottom 3px"><button type="button" class="btn btn-primary" id="answer1">1.
+                        strings</button>
+                </div><br>
+                <div class="padding-bottom 3px"><button type="button" class="btn btn-primary" id="answer2">2.
+                        booleans</button>
+                </div><br>
+                <div class="padding-bottom 3px"><button type="button" class="btn btn-primary" id="answer3">3.
+                        alerts</button>
+                </div><br>
+                <div class="padding-bottom 3px"><button type="button" class="btn btn-primary" id="answer4">4.
+                        numbers</button>
+                </div><br>
+            </ul>
+        </div>
+    </div>
+
+    <!-- //Question 2// ------------ 3 is the correct answer-->
+    <div id="question-two" style="display: none;">
+        <div class="col-md-12 text-center">
+            <h4 class="questionArea1">The Condition in an if/else statement is enclosed withing ______.</h4>
+        </div>
+        <div class="col-md-12 text-center">
+            <ul class="col-md-12 text-center">
+                <div class="padding-bottom 3px"><button type="button" class="btn btn-primary" id="answer5">1.
+                        quotes</button>
+                </div><br>
+                <div class="padding-bottom 3px"><button type="button" class="btn btn-primary" id="answer6">2. curly
+                        brackets</button>
+                </div><br>
+                <div class="padding-bottom 3px"><button type="button" class="btn btn-primary" id="answer7">3.
+                        parentheses</button>
+                </div><br>
+                <div class="padding-bottom 3px"><button type="button" class="btn btn-primary" id="answer8">4. square
+                        brackets</button>
+                </div><br>
+            </ul>
+        </div>
+    </div>
+
+    <!-- // Question 3// ---------- 4 is the correnct answer -->
+    <div id="question-three" style="display: none;">
+        <div class="col-md-12 text-center">
+            <h4 class="questionArea1">Arrays in JavaScript can be used to store ____.</h4>
+        </div>
+        <div class="col-md-12 text-center">
+            <ul class="col-md-12 text-center">
+                <div class="padding-bottom 3px"><button type="button" class="btn btn-primary" id="answer9">1. numbers
+                        and strings</button>
+                </div><br>
+                <div class="padding-bottom 3px"><button type="button" class="btn btn-primary" id="answer10">2. other
+                        arrays</button>
+                </div><br>
+                <div class="padding-bottom 3px"><button type="button" class="btn btn-primary" id="answer11">3.
+                        booleans</button>
+                </div><br>
+                <div class="padding-bottom 3px"><button type="button" class="btn btn-primary" id="answer12">4. all of
+                        the above</button>
+                </div><br>
+            </ul>
+        </div>
+    </div>
+
+    <!-- // Question 4// ----------3 is the correct answer -->
+    <div id="question-four" style="display: none;">
+        <div class="col-md-12 text-center">
+            <h4 class="tex-bold questionArea1">String values must be enclosed withing ______ when being assigned to
+                variables</h4>
+        </div>
+        <div class="col-md-12 text-center">
+            <ul class="col-md-12 text-center">
+                <div class="padding-bottom 3px"><button type="button" class="btn btn-primary" id="answer13">1.
+                        commas</button>
+                </div><br>
+                <div class="padding-bottom 3px"><button type="button" class="btn btn-primary" id="answer14">2. curly
+                        brackets</button>
+                </div><br>
+                <div class="padding-bottom 3px"><button type="button" class="btn btn-primary" id="answer15">3.
+                        quotes</button>
+                </div><br>
+                <div class="padding-bottom 3px"><button type="button" class="btn btn-primary" id="answer16">4.
+                        parentheses</button>
+                </div><br>
+            </ul>
+        </div>
+    </div>
+
+    <!-- // Question 5// ----------- 4 is the correct answer -->
+    <div id="question-five" style="display: none;">
+        <div class="col-md-12 text-center">
+            <h4 class="questionArea1">A very usefiul tool used during development and debugging for printing content to
+                the debugger is:</h4>
+        </div>
+        <div class="col-md-12 text-center">
+            <ul class="col-md-12 text-center">
+                <div class="padding-bottom 3px"><button type="button" class="btn btn-primary" id="answer17">1.
+                        JavaScript</button>
+                </div><br>
+                <div class="padding-bottom 3px"><button type="button" class="btn btn-primary" id="answer18">2.
+                        terminal/bash</button>
+                </div><br>
+                <div class="padding-bottom 3px"><button type="button" class="btn btn-primary" id="answer19">3.
+                        forloops</button>
+                </div><br>
+                <div class="padding-bottom 3px"><button type="button" class="btn btn-primary" id="answer20">4.
+                        conosole.log</button>
+                </div><br>
+            </ul>
+        </div>
+    </div>
+
+    <!-- // Final Score Page// -->
+    <div id="high-score" style="display: none;">
+        <div class="col-md-12 text-center">
+            <h4>Your final score is:</h4><br>
+            <div id="score-display"></div><br>
+        </div>
+        <div class="col-md-12 text-center">
+            <div>
+                <input placeholder="initials" id="name-score"/></input> <br>
+                <button id="save-button">Save Score</button><br>
+                <button id="clear-button">Clear Score</button><br>
+            </div>
+            <div class="container">
+                <h4>Leaderboard</h4>
+                <ul class="col-md-12 text-center" id="winners"></ul>
+            </div>
+
+        </div>
+    </div>
+
+
+    <script type="text/javascript">
+
+        var goButton = document.getElementById("start-button");
+        goButton.addEventListener("click", startGame);
+        goButton.addEventListener("click", startTimer);
+
+        var i = 100;
+        var x = 10;
+
+        function changeView() {
+            var titleCard = document.getElementById("welcome-message");
+            var qOne = document.getElementById("question-one");
+            var qTwo = document.getElementById("question-two");
+            var qThree = document.getElementById("question-three");
+            var qFour = document.getElementById("question-four");
+            var qFive = document.getElementById("question-five");
+            var finalScore = document.getElementById("high-score");
+            var threeLetters = document.getElementById("initials");
+            var finalScore = document.getElementById("high-score");
+
+            titleCard.style.display = "none";
+            qOne.style.display = "none";
+            qTwo.style.display = "none";
+            qThree.style.display = "none";
+            qFour.style.display = "none";
+            qFive.style.display = "none";
+            finalScore.style.display = "block";
+        }
+
+        function highScores() {
+            var clickArea = document.getElementById("score-click");
+            clickArea.addEventListener("click", changeView)
+        };
+
+        function startGame() {
+            var titleCard = document.getElementById("welcome-message");
+            var qOne = document.getElementById("question-one");
+            var qTwo = document.getElementById("question-two");
+            var qThree = document.getElementById("question-three");
+            var qFour = document.getElementById("question-four");
+            var qFive = document.getElementById("question-five");
+            var finalScore = document.getElementById("high-score");
+            var threeLetters = document.getElementById("initials");
+            var finalScore = document.getElementById("high-score");
+
+
+            titleCard.style.display = "none";
+            qOne.style.display = "block";
+            qTwo.style.display = "none";
+            qThree.style.display = "none";
+            qFour.style.display = "none";
+            qFive.style.display = "none";
+            finalScore.style.display = "none";
+        };
+
+
+        // //Timer 1
+        // var highDiv = document.getElementById("high-score");
+        // var active = highDiv.getAttribute("block");
+        function startTimer() {
+            (function timer() {
+                if (--i < 0) return;
+                var timerInterval = setTimeout(function () {
+                    document.getElementsByTagName('span')[0].innerHTML = i;
+                    timer();
+                }, 1000);
+            })();
+            queryOne()
+        };
+
+        function stopTimer() {
+            var timerInterval = clearTimeout(function () {
+                document.getElementsByTagName('span')[0].innerHTML = i;
+                clearTimeout(timerInterval);
+            }())
+        };
+
+        function subtract() {
+            i = i - 10;
+        };
+
+        function queryOne() {
+
+            var aOne = document.getElementById("answer1")
+            var aTwo = document.getElementById("answer2")
+            var aThree = document.getElementById("answer3")
+            var aFour = document.getElementById("answer4")
+
+            answer3.addEventListener("click", queryTwo)
+            answer1.addEventListener("click", subtract)
+            answer2.addEventListener("click", subtract)
+            answer4.addEventListener("click", subtract)
+            answer1.addEventListener("click", queryTwo)
+            answer2.addEventListener("click", queryTwo)
+            answer4.addEventListener("click", queryTwo)
+
+        };
+
+        function queryTwo() {
+            var titleCard = document.getElementById("welcome-message");
+            var qOne = document.getElementById("question-one");
+            var qTwo = document.getElementById("question-two");
+            var qThree = document.getElementById("question-three");
+            var qFour = document.getElementById("question-four");
+            var qFive = document.getElementById("question-five");
+            var finalScore = document.getElementById("high-score");
+            var threeLetters = document.getElementById("initials");
+            var finalScore = document.getElementById("high-score");
+
+            titleCard.style.display = "none";
+            qOne.style.display = "none";
+            qTwo.style.display = "block";
+            qThree.style.display = "none";
+            qFour.style.display = "none";
+            qFive.style.display = "none";
+            finalScore.style.display = "none";
+
+            var aFive = document.getElementById("answer5")
+            var aSix = document.getElementById("answer6")
+            var aSeven = document.getElementById("answer7")
+            var aEight = document.getElementById("answer8")
+
+
+            answer7.addEventListener("click", queryThree)
+            answer8.addEventListener("click", subtract)
+            answer5.addEventListener("click", subtract)
+            answer6.addEventListener("click", subtract)
+            answer8.addEventListener("click", queryThree)
+            answer5.addEventListener("click", queryThree)
+            answer6.addEventListener("click", queryThree)
+        };
+
+        function queryThree() {
+            var titleCard = document.getElementById("welcome-message");
+            var qOne = document.getElementById("question-one");
+            var qTwo = document.getElementById("question-two");
+            var qThree = document.getElementById("question-three");
+            var qFour = document.getElementById("question-four");
+            var qFive = document.getElementById("question-five");
+            var finalScore = document.getElementById("high-score");
+            var threeLetters = document.getElementById("initials");
+            var finalScore = document.getElementById("high-score");
+
+            titleCard.style.display = "none";
+            qOne.style.display = "none";
+            qTwo.style.display = "none";
+            qThree.style.display = "block";
+            qFour.style.display = "none";
+            qFive.style.display = "none";
+            finalScore.style.display = "none";
+
+            var aNine = document.getElementById("answer9")
+            var aTen = document.getElementById("answer10")
+            var aEleven = document.getElementById("answer11")
+            var aTwelve = document.getElementById("answer12")
+
+            answer12.addEventListener("click", queryFour)
+            answer9.addEventListener("click", subtract)
+            answer10.addEventListener("click", subtract)
+            answer11.addEventListener("click", subtract)
+            answer9.addEventListener("click", queryFour)
+            answer10.addEventListener("click", queryFour)
+            answer11.addEventListener("click", queryFour)
+        };
+
+        function queryFour() {
+            var titleCard = document.getElementById("welcome-message");
+            var qOne = document.getElementById("question-one");
+            var qTwo = document.getElementById("question-two");
+            var qThree = document.getElementById("question-three");
+            var qFour = document.getElementById("question-four");
+            var qFive = document.getElementById("question-five");
+            var finalScore = document.getElementById("high-score");
+            var threeLetters = document.getElementById("initials");
+            var finalScore = document.getElementById("high-score");
+
+            titleCard.style.display = "none";
+            qOne.style.display = "none";
+            qTwo.style.display = "none";
+            qThree.style.display = "none";
+            qFour.style.display = "block";
+            qFive.style.display = "none";
+            finalScore.style.display = "none";
+
+            var aThirteen = document.getElementById("answer13")
+            var aFourteen = document.getElementById("answer14")
+            var aFifteen = document.getElementById("answer15")
+            var aSixteen = document.getElementById("answer16")
+
+
+            answer15.addEventListener("click", queryFive)
+            answer13.addEventListener("click", subtract)
+            answer14.addEventListener("click", subtract)
+            answer16.addEventListener("click", subtract)
+            answer13.addEventListener("click", queryFive)
+            answer14.addEventListener("click", queryFive)
+            answer16.addEventListener("click", queryFive)
+        };
+
+        function queryFive() {
+            var titleCard = document.getElementById("welcome-message");
+            var qOne = document.getElementById("question-one");
+            var qTwo = document.getElementById("question-two");
+            var qThree = document.getElementById("question-three");
+            var qFour = document.getElementById("question-four");
+            var qFive = document.getElementById("question-five");
+            var finalScore = document.getElementById("high-score");
+            var threeLetters = document.getElementById("initials");
+            var finalScore = document.getElementById("high-score");
+
+            titleCard.style.display = "none";
+            qOne.style.display = "none";
+            qTwo.style.display = "none";
+            qThree.style.display = "none";
+            qFour.style.display = "none";
+            qFive.style.display = "block";
+            finalScore.style.display = "none";
+
+            var aSeventeen = document.getElementById("answer17")
+            var aEighteen = document.getElementById("answer18")
+            var aNineteen = document.getElementById("answer19")
+            var aTwenty = document.getElementById("answer20")
+
+
+            answer17.addEventListener("click", stopTimer)
+            answer18.addEventListener("click", stopTimer)
+            answer19.addEventListener("click", stopTimer)
+            answer20.addEventListener("click", stopTimer)
+            answer20.addEventListener("click", endGame)
+            answer17.addEventListener("click", subtract)
+            answer18.addEventListener("click", subtract)
+            answer19.addEventListener("click", subtract)
+            answer17.addEventListener("click", endGame)
+            answer18.addEventListener("click", endGame)
+            answer19.addEventListener("click", endGame)
+
+        };
+
+        function endGame() {
+
+            var titleCard = document.getElementById("welcome-message");
+            var qOne = document.getElementById("question-one");
+            var qTwo = document.getElementById("question-two");
+            var qThree = document.getElementById("question-three");
+            var qFour = document.getElementById("question-four");
+            var qFive = document.getElementById("question-five");
+            var finalScore = document.getElementById("high-score");
+            var threeLetters = document.getElementById("initials");
+            var finalScore = document.getElementById("high-score");
+            var nameEl = document.getElementById("name-score")
+            var ulName = document.getElementById("winners")
+
+
+            titleCard.style.display = "none";
+            qOne.style.display = "none";
+            qTwo.style.display = "none";
+            qThree.style.display = "none";
+            qFour.style.display = "none";
+            qFive.style.display = "none";
+            finalScore.style.display = "block";
+
+            function clearTime() {
+                var timeTarget = document.getElementById("score-area");
+                timeTarget.style.display = "none";
+            };
+
+            function clearScore() {
+                var targetClear = document.getElementById("winners");
+                targetClear.style.display = "none";
+            };
+
+
+
+            var finalScore = document.getElementById("timer").textContent;
+            var landingZone = document.getElementById("score-display");
+            var scoreDiv = document.createElement("div");
+            var scoreContent = document.createTextNode(finalScore);
+            scoreDiv.appendChild(scoreContent);
+            landingZone.appendChild(scoreDiv);
+
+            function addtoList() {
+                var landingZone = document.getElementById("score-display");
+                var scoreDiv = document.createElement("div");
+                var scoreContent = document.createTextNode(finalScore);
+                var targetWin = document.getElementById("winners");
+                var buttonSave = document.getElementById("save-button");
+                var buttonClear = document.getElementById("clear-button");
+                scoreDiv.appendChild(scoreContent);
+                winners.appendChild(scoreDiv);
+            };
+
+            function addtoNameList(event){
+                event.preventDefault();
+                var nam = nameEl.value;
+                var li = document.createElement("li");
+                li.innerHTML = nam;
+                ulName.append(li);
+            };
+
+            console.log(finalScore);
+
+            clearTime()
+
+            var targetWin = document.getElementById("winners");
+            var buttonSave = document.getElementById("save-button");
+            var buttonClear = document.getElementById("clear-button");
+
+            buttonSave.addEventListener("click", addtoList)
+            buttonSave.addEventListener("click", addtoNameList)
+            buttonClear.addEventListener("click", clearScore)
+
+        };
+
+    </script>
+</body>
+
+</html>
