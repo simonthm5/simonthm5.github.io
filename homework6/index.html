@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Homework #6 - Tom Simon</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+
+<body class="bg-primary">
+
+    <header class="bg-dark">
+        <h1 class="padding-top-10 font-weigh-bold text-white text-center">Weather Dashboard</h1>
+    </header>
+    <!-- div for search bar -->
+    <div class="d-inline-flex container">
+        <div class="col-sm-2 pull-left">
+
+            <form id="target">
+                <div>
+                    <input id="city-name" type="text">
+                </div>
+            </form>
+
+        </div><br>
+
+        <div id="results" class="d-inline-flex col-lg-6 container pull-right text-center bg-light"></div><br>
+        <div> </div>
+
+
+
+
+    </div>
+
+    <div id="future" class="col-lg-6 container text-center bg-light"></div>
+    <!-- div for results -->
+
+    <div id="city-list" class="col-sm-2 pull-left bg-light">
+
+
+    </div>
+    <!-- div for weather results -->
+
+
+
+    <script type="text/javascript">
+
+        function clearBox() {
+            document.getElementById("results").innerHTML = "";
+        };
+
+        var form = document.getElementById("target");
+
+
+        form.onsubmit = writeCity
+        // form.onsubmit = writeForecast
+
+        // form onsubmit = write forecast//
+
+        function writeCity(event) {
+            clearBox();
+            var input = document.getElementById("city-name").value;
+            var cityP = document.createElement("div");
+            var targetCity = document.getElementById("city-list");
+            cityP.setAttribute("class", "col-sm-2 pull-left bg-light");
+            var cityPInput = document.createTextNode(input);
+            cityP.appendChild(cityPInput);
+            targetCity.appendChild(cityP);
+            localStorage.setItem("lastPlace", cityPInput)
+            var inputUrl = "https://community-open-weather-map.p.rapidapi.com/weather?q=" + input
+            event.preventDefault();
+
+            // The code between the next two comments were generated from open weather map, and it includes my //
+
+            var settings = {
+                "async": true,
+                "crossDomain": true,
+                "url": inputUrl,
+                "method": "GET",
+                "headers": {
+                    "x-rapidapi-host": "community-open-weather-map.p.rapidapi.com",
+                    "x-rapidapi-key": "4035402202msh557bdad31a4cf85p19589cjsnc2a99a7aea60"
+                }
+            };
+            $.ajax(settings).done(function (response) {
+                console.log(response);
+
+                // End api code  //
+
+                var cityName = response.name;
+                var cityTemp = response.main.temp;
+                var cityHumi = response.main.humidity;
+                var cityWind = response.wind.speed;
+                var forecastDiv = document.createElement("div");
+                var resultsTarget = document.getElementById("results");
+                forecastDiv.setAttribute("class", "col-md-6 bg-light text-center");
+                forecastDiv.setAttribute("id", "new-div");
+                farTemp = ((cityTemp - 273.15) * (9 / 5) + 32);
+                var cityNameI = document.createTextNode("Location: " + cityName + " ");
+                var cityTempI = document.createTextNode("Temperature: " + farTemp + " ");
+                var cityHumiI = document.createTextNode("Humidity: " + cityHumi + "% ");
+                var cityWindI = document.createTextNode("Wind: " + cityWind + " MPH ");
+                forecastDiv.appendChild(cityNameI);
+                forecastDiv.appendChild(cityTempI);
+                forecastDiv.appendChild(cityHumiI);
+                forecastDiv.appendChild(cityWindI);
+                resultsTarget.appendChild(forecastDiv);
+
+                var inputUrl2 = "https://community-open-weather-map.p.rapidapi.com/forecast?q=" + input
+                var settings = {
+                    "async": true,
+                    "crossDomain": true,
+                    "url": inputUrl2,
+                    "method": "GET",
+                    "headers": {
+                        "x-rapidapi-host": "community-open-weather-map.p.rapidapi.com",
+                        "x-rapidapi-key": "4035402202msh557bdad31a4cf85p19589cjsnc2a99a7aea60"
+                    }
+                }
+
+                $.ajax(settings).done(function (response2) {
+                    var dayOneDiv = document.createElement("div");
+                    var dayTwoDiv = document.createElement("div");
+                    var dayThreeDiv = document.createElement("div");
+                    dayOneDiv.setAttribute("id", "day-one");
+                    dayTwoDiv.setAttribute("id", "day-two");
+                    dayThreeDiv.setAttribute("id", "day-three");
+
+                    //day one//
+
+                    cityDate1 = response2.list["0"].dt_txt;
+                    var dayOneTarget = document.getElementById("future");
+                    dayOneTargetI = document.createTextNode(" Forecast for " + cityDate1);
+                    dayOneDiv.appendChild(dayOneTargetI);
+                    dayOneTarget.appendChild(dayOneDiv);
+
+                    //day two // 
+
+                    cityDate2 = response2.list["7"].dt_txt;
+                    var dayTwoTarget = document.getElementById("future");
+                    dayTwoTargetI = document.createTextNode(" Forecast for " + cityDate2);
+                    dayTwoDiv.appendChild(dayTwoTargetI);
+                    dayTwoTarget.appendChild(dayTwoDiv);
+
+                    //day three // 
+
+                    cityDate3 = response2.list["15"].dt_txt;
+                    cityDate3.truncate(10);
+                    var dayThreeTarget = document.getElementById("future");
+                    dayThreeTargetI = document.createTextNode(" Forecast for " + cityDate3);
+                    dayThreeDiv.appendChild(dayThreeTargetI);
+                    dayThreeTarget.appendChild(dayThreeDiv);
+
+                    console.log(response2);
+
+
+
+
+                });
+            })
+        };
+
+
+
+
+        //API CALL//
+
+
+
+    </script>
+</body>
+
+</html>
